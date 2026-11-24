@@ -1,0 +1,80 @@
+{
+  "mode": "demo",
+  "generated": "2025-01-15T12:00:00Z",
+  "items": [
+    {
+      "evidence": {
+        "source": "DuckDB",
+        "title": "Comparing two ways to query local Parquet",
+        "url": "https://github.com/duckdb/duckdb/releases",
+        "excerpt": "Fictional sample. The link points to the real project release index.",
+        "topics": [
+          "SQL/BI"
+        ],
+        "published": null,
+        "event_date": null,
+        "retrieved": "2025-01-15T12:00:00Z"
+      },
+      "category": "SQL/BI",
+      "analysis": {
+        "evidence_id": 1,
+        "what_changed": "A fictional release adds a metadata shortcut for a common Parquet filter.",
+        "why_it_matters": "It illustrates how pruning input can reduce scan work.",
+        "application": "Run the same filter on two partition layouts and record bytes read.",
+        "availability": "available",
+        "recommendation": "Try now",
+        "limitations": "Expected gains depend on file layout and filter selectivity."
+      }
+    },
+    {
+      "evidence": {
+        "source": "scikit-learn",
+        "title": "Inspecting probability calibration",
+        "url": "https://github.com/scikit-learn/scikit-learn/releases",
+        "excerpt": "Fictional sample. The link points to the real project release index.",
+        "topics": [
+          "Evaluation"
+        ],
+        "published": null,
+        "event_date": null,
+        "retrieved": "2025-01-15T12:00:00Z"
+      },
+      "category": "Evaluation",
+      "analysis": {
+        "evidence_id": 2,
+        "what_changed": "A fictional update adds a diagnostic view for comparing calibration curves.",
+        "why_it_matters": "It illustrates the difference between a useful ranking and a reliable probability.",
+        "application": "Build a reliability plot with a held-out dataset and compare two classifiers.",
+        "availability": "preview",
+        "recommendation": "Learn next",
+        "limitations": "Calibration estimates are noisy when a bin has few observations."
+      }
+    },
+    {
+      "evidence": {
+        "source": "MLflow",
+        "title": "Tracking evaluation inputs across runs",
+        "url": "https://github.com/mlflow/mlflow/releases",
+        "excerpt": "Fictional sample. The link points to the real project release index.",
+        "topics": [
+          "MLOps"
+        ],
+        "published": null,
+        "event_date": null,
+        "retrieved": "2025-01-15T12:00:00Z"
+      },
+      "category": "MLOps",
+      "analysis": {
+        "evidence_id": 3,
+        "what_changed": "A fictional feature proposes storing an evaluation dataset fingerprint alongside metrics.",
+        "why_it_matters": "It makes unexpected score changes easier to investigate.",
+        "application": "Track a small evaluation dataset across two runs and note which rows changed.",
+        "availability": "announced",
+        "recommendation": "Watch",
+        "limitations": "A fingerprint identifies a dataset version and cannot reproduce the dataset by itself."
+      }
+    }
+  ],
+  "exercise": "Spend five minutes choosing a small dataset, fifteen minutes comparing two query plans, and five minutes recording scan sizes and what changed.",
+  "takeaway": "Keep the input and measurement method fixed when comparing tooling changes."
+}

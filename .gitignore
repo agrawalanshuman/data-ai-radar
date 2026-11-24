@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+.radar/
+.development/
+*.sqlite3
+*.sqlite3-*
+dist/

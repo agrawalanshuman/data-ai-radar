@@ -12,7 +12,7 @@ from radar.network import NetworkFailure, read_response
 DEFAULT_MODELS = {
     "OpenAI": "gpt-4.1-mini",
     "Anthropic": "claude-sonnet-4-6",
-    "Gemini": "gemini-2.5-flash",
+    "Gemini": "gemini-3.5-flash-lite",
     "Ollama": "",
 }
 MAX_OUTPUT = 3500

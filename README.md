@@ -22,7 +22,7 @@ Use **Preferences** to choose topics, goals, experience, coverage window, briefi
 | --- | --- | --- |
 | OpenAI | `gpt-4.1-mini` | [Chat Completions](https://platform.openai.com/docs/api-reference/chat/create) · [Model IDs](https://github.com/openai/openai-python/blob/main/src/openai/types/shared/chat_model.py) |
 | Anthropic | `claude-sonnet-4-6` | [Messages](https://docs.anthropic.com/en/api/messages) · [Model IDs](https://github.com/anthropics/anthropic-sdk-python/blob/main/src/anthropic/types/model_param.py) |
-| Google Gemini | `gemini-2.5-flash` | [generateContent](https://ai.google.dev/api/generate-content) · [Official SDK examples](https://github.com/googleapis/python-genai) |
+| Google Gemini | `gemini-3.5-flash-lite` | [generateContent](https://ai.google.dev/api/generate-content) · [Official SDK examples](https://github.com/googleapis/python-genai) |
 | Ollama | Your installed model ID | [Local chat endpoint](https://docs.ollama.com/api/chat) |
 
 Model access and availability depend on your account and can change. Use a chat model compatible with the listed endpoint and JSON output. Enter your own hosted-provider key in the masked field. **Test connection** asks the selected model for a short response and may incur a small charge. **Clear credentials** clears the session’s entered keys and local-file selections. A missing key or rejected request stops generation. Each model request is an explicit user action and receives a 3,500-token output cap for generation or 32 for a connection test. Provider-reported input, output and thinking usage is shown when available. Your provider bills your account at its current rates. Hosting is a separate expense.

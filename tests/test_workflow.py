@@ -109,6 +109,9 @@ def test_adapters(provider, host, header, value, response):
         assert "account-secret" not in str(request.url)
         assert b"account-secret" not in request.content
         assert request.headers.get(header) == value
+        if provider == "Gemini":
+            assert request.url.path == "/v1beta/models/gemini-3.5-flash-lite:generateContent"
+            assert json.loads(request.content)["generationConfig"] == {"maxOutputTokens": 32}
         return response
 
     result = complete(
@@ -122,6 +125,40 @@ def test_adapters(provider, host, header, value, response):
         transport=httpx.MockTransport(handler),
     )
     assert result.text == "OK"
+
+
+def test_gemini_default_generates_evidence_linked_json(article):
+    def handler(request):
+        assert request.url.path == "/v1beta/models/gemini-3.5-flash-lite:generateContent"
+        config = json.loads(request.content)["generationConfig"]
+        assert config["responseMimeType"] == "application/json"
+        assert "thinkingConfig" not in config
+        return httpx.Response(
+            200,
+            json={
+                "candidates": [
+                    {
+                        "finishReason": "STOP",
+                        "content": {
+                            "parts": [
+                                {"text": "Synthetic thought, not output", "thought": True},
+                                {"text": json.dumps(OUTPUT)},
+                            ],
+                        },
+                    }
+                ],
+            },
+        )
+
+    result = complete(
+        "Gemini",
+        DEFAULT_MODELS["Gemini"],
+        "account-secret",
+        "System",
+        "Reply",
+        transport=httpx.MockTransport(handler),
+    )
+    assert briefing.validate_response(result.text, [article]).items[0].evidence_id == 1
 
 
 @pytest.mark.parametrize(
